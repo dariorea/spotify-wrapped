@@ -1,0 +1,36 @@
+body {
+    font-family: sans-serif;
+    background-color: #121212;
+    color: white;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #1db954;
+    color: white;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+#tracks {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.track {
+    width: 180px;
+    background-color: #181818;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.track img {
+    width: 100%;
+    border-radius: 10px;
+}
