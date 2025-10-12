@@ -13,7 +13,7 @@
           // Guardá el token en localStorage
           localStorage.setItem("spotify_token", data.access_token);
           // Redirigí a la app principal
-          window.location.href = "home.html";
+          window.location.href = "../pages/home.html";
         })
         .catch(err => console.error(err));
     } else {

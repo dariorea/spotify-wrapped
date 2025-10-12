@@ -2,7 +2,8 @@ import express from "express";
 import axios from "axios";
 import dotenv from "dotenv";
 import cors from "cors";
-import topRoutes from "./routes/top.routes.js"
+import topRoutes from "./routes/top.routes.js";
+import userRoutes from "./routes/user.routes.js";
 
 dotenv.config();
 
@@ -46,5 +47,6 @@ app.post("/callback", async (req, res) => {
 
 // 🔹 Rutas externas (módulo top)
 app.use("/track", topRoutes);
+app.use("/user", userRoutes)
 
 app.listen(3000, () => console.log("Servidor en http://localhost:3000"));

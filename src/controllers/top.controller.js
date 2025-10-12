@@ -1,5 +1,26 @@
 import axios from "axios";
 
+
+export const getTopTracksFour = async (req, res) => {
+  const accessToken = req.headers.authorization?.split(" ")[1];
+  if (!accessToken) {
+    return res.status(401).json({ error: "Token no proporcionado" });
+  }
+
+  try {
+    const result = await axios.get(
+      "https://api.spotify.com/v1/me/top/tracks?limit=20&time_range=short_term",
+      {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      }
+    );
+    res.json(result.data);
+  } catch (error) {
+    console.error(error.response?.data || error.message);
+    res.status(500).json({ error: "Error obteniendo canciones" });
+  }
+}
+
 export const getTopTenArtist = async (req, res) => {
     const accessToken = req.headers.authorization?.split(" ")[1]
     if (!accessToken) {
