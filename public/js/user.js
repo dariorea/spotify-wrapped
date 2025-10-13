@@ -45,7 +45,7 @@ export const getUserTopArtist = () => {
             console.log(data)
             data.items.forEach(element => {
                 const div = document.createElement("div")
-                div.classList.add("top-artist-card")
+                div.classList.add("top-card")
                 const img = document.createElement("img")
                 img.src = `${element.images?.[0]?.url }`
                 img.alt = element.name
@@ -60,7 +60,7 @@ export const getUserTopArtist = () => {
 export const getUserTopTracks = () => {
     const token = localStorage.getItem("spotify_token");
     if (token) {
-        fetch("http://127.0.0.1:3000/user/tracks?time_range=medium_term&limit_5", {
+        fetch("http://127.0.0.1:3000/user/tracks", {
             headers: { Authorization: `Bearer ${token}` }
         })
         .then(res => res.json())
@@ -69,7 +69,7 @@ export const getUserTopTracks = () => {
             console.log(data)
             data.items.forEach(element => {
                 const div = document.createElement("div")
-                div.classList.add("top-artist-card")
+                div.classList.add("top-card")
                 const img = document.createElement("img")
                 img.src = `${element.album.images?.[0]?.url }`
                 img.alt = element.name
@@ -81,3 +81,33 @@ export const getUserTopTracks = () => {
         })
     }
 }
+
+export const getUserTopGenres = () => {
+    const token = localStorage.getItem("spotify_token");
+    const containerTop = document.getElementById("top-genres");
+    if (token) {
+        fetch("http://127.0.0.1:3000/user/genres", {
+            headers: { Authorization: `Bearer ${token}` }
+        })
+        .then(res => {
+            if (!res.ok) throw new Error("Error al obtener géneros");
+            return res.json();
+        })
+        .then(genres => {
+            console.log(genres); // acá sí tenés los datos reales
+            
+            genres.slice(0, 5).forEach(g => {
+                const div = document.createElement("div");
+                const p = document.createElement("p")
+                p.textContent = `${g.genre}`;
+                div.appendChild(p);
+                containerTop.appendChild(div)
+            });
+        })
+        .catch(err => {
+            console.error("Error:", err);
+        });
+    } else {
+        console.warn("No hay token disponible");
+    }
+};

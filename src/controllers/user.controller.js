@@ -27,7 +27,7 @@ export const getUserArtist = async (req, res) => {
       }
       try {
         const result = await axios.get(
-          "https://api.spotify.com/v1/me/top/artists",
+          "https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=5",
           {
             headers: { Authorization: `Bearer ${accessToken}` },
           }
@@ -57,3 +57,44 @@ export const getUserTracks = async (req, res) => {
         res.status(500).json({ error: "Error obteniendo canciones" });
       }
 }
+
+
+export const getUserGenres = async (req, res) => {
+  const accessToken = req.headers.authorization?.split(" ")[1];
+
+  if (!accessToken) {
+    return res.status(401).json({ error: "Token no proporcionado" });
+  }
+
+  try {
+    // Petición a Spotify
+    const result = await axios.get(
+      "https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=50",
+      {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      }
+    );
+
+    const data = result.data; // ✅ Esta es la respuesta real de Spotify
+
+    // Mapa para contar géneros
+    const genreCount = {};
+    data.items.forEach(artist => {
+      artist.genres.forEach(genre => {
+        genreCount[genre] = (genreCount[genre] || 0) + 1;
+      });
+    });
+
+    // Convertir a array y ordenar por cantidad
+    const sortedGenres = Object.entries(genreCount)
+      .sort((a, b) => b[1] - a[1])
+      .map(([genre, count]) => ({ genre, count }));
+
+    // Enviar respuesta al frontend
+    return res.json(sortedGenres);
+
+  } catch (error) {
+    console.error(error.response?.data || error.message);
+    return res.status(500).json({ error: "Error obteniendo géneros del usuario" });
+  }
+};
