@@ -20,9 +20,10 @@ export const getTopFourWeeks = () => {
                     div.innerHTML = `
                         <img src="${track.album.images[0].url}" width="100">
                         <p>${track.name} - ${track.artists.map(a => a.name).join(", ")}</p>
-                        <a href="${track.external_urls.spotify}"> escuchala ahora </a>
+                        <a href="${track.external_urls.spotify}"><i class="bi bi-spotify"></i></a>
                     `;
-                    container.appendChild(div);
+                    container.appendChild(div)
+                    container.style.display = "block";
                 });
             }
         })
@@ -55,9 +56,10 @@ export const getTopTwelveMonths = () => {
                     div.innerHTML = `
                         <img src="${track.album.images[0].url}" width="100">
                         <p>${track.name} - ${track.artists.map(a => a.name).join(", ")}</p>
-                        <a href="${track.external_urls.spotify}"> escuchala ahora </a>
+                        <a href="${track.external_urls.spotify}"><i class="bi bi-spotify"></i></a>
                     `;
                     container.appendChild(div);
+                    container.style.display = "block";
                 });
             }
         })
@@ -88,9 +90,10 @@ export const getTopSixMonts = () => {
                     div.innerHTML = `
                         <img src="${track.album.images[0].url}" width="100">
                         <p>${track.name} - ${track.artists.map(a => a.name).join(", ")}</p>
-                        <a href="${track.external_urls.spotify}"> escuchala ahora </a>
+                        <a href="${track.external_urls.spotify}"><i class="bi bi-spotify"></i></a>
                     `;
                     container.appendChild(div);
+                    container.style.display = "block";
                 });
             }
         })

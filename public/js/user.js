@@ -94,10 +94,11 @@ export const getUserTopGenres = () => {
             return res.json();
         })
         .then(genres => {
-            console.log(genres); // acá sí tenés los datos reales
+            console.log("generos" + genres); // acá sí tenés los datos reales
             
-            genres.slice(0, 5).forEach(g => {
+            genres.slice(0, 10).forEach(g => {
                 const div = document.createElement("div");
+                div.classList.add("top-card")
                 const p = document.createElement("p")
                 p.textContent = `${g.genre}`;
                 div.appendChild(p);

@@ -16,14 +16,13 @@
 <body>
     <nav>
         <div class="title-container">
+            <h1>Your Spotify Stats</h1>
             <i class="bi bi-spotify"></i>
-            <h1>Spotify Stats</h1>
-            <i class="bi bi-bar-chart-line-fill"></i>
         </div>
     </nav>
     <div class="main">
         <div class="columna">
-            <div class="profile-container bg-profile" id="profile"></div>
+            <div id="profile" class="profile-container bg-profile"></div>
             <div id="top-tracks" class="card-container bg-top-tracks">
                 <div class="top-card-title">
                     <h2>Top Songs</h2>
@@ -46,14 +45,20 @@
             </div>
         </div>
     </div>
-
+    <div class="subtitle">
+        <h3>Discover your most listened to songs</h3>
+    </div>
     <div class="btns-container">
-        <button class="btn-top" id="btn-fourweeks">Ultimas 4 semanas</button>
-        <button class="btn-top" id="btn-sixmonths">Ultimos 6 meses</button>
-        <button class="btn-top" id="btn-twelvemonths">Ultimos 12 meses</button>
+        <button class="btn-top" id="btn-fourweeks">Last 4 weeks</button>
+        <button class="btn-top" id="btn-sixmonths">Last 6 months</button>
+        <button class="btn-top" id="btn-twelvemonths">Last 12 months</button>
     </div>
 
-    <div id="tracks"></div>  
+
+    <div class="tracks">
+        <div id="tracks" class="card-container-tracks"></div>
+    </div>  
+    </div>
     <script type="module" src="../js/main.js"></script>
 </body>
 </html>

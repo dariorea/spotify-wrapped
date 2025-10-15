@@ -3,48 +3,74 @@
     margin: 0;
 }
 body {
-    background-color: #121212;
     font-family: "Montserrat";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #020024;
 }
 nav {
     display: flex;
     justify-content: center;
-    background-color: #121212;
 }
 .title-container {
-    width: 1200px;
-    height: 80px;
+    width: 830px;
+    height: 160px;
     display: flex;
     align-items: center;
-    color: #1db954;
-    font-size: 20px;
-    gap: 10px;
-    border-bottom: 1px solid #1db954 ;
+    justify-content: center;
+    color: white;
+    font-size: 50px;
+    gap: 20px;
 }
 .title-container i {
-    font-size: 25px;
+    font-size: 60px;
 }
-#tracks {
+.subtitle {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    width: 830px;
+    color: white;
+    height: 100px;
+}
+.tracks {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
     color: white;
-    gap: 30px;
-    background-color: #121212;
+    gap: 10px;
+    margin-top: 30px;
+    height: 600px;
+}/* Estilo del scroll */
+
+.card-container-tracks {
+    height: 600px;
+    overflow-y: scroll;   /* activa scroll vertical */
+    display: none;
+    margin-bottom: 100px;
+}
+.card-container-tracks::-webkit-scrollbar-track {
+    background-color: #19789e;
+    border-radius: 10px;
+}
+.card-container-tracks::-webkit-scrollbar {
+    width: 15px;
+}
+.card-container-tracks::-webkit-scrollbar-thumb {
+    background: white;          
+    border-radius: 10px;
 }
 .card {
-    width: 1200px;
+    width: 830px;
     gap: 5px;
     border-radius: 10px;
     display: flex;
     align-items: center;
-    border: solid 2px #1db954;
     overflow: hidden;
     padding: 10px;
 }
 .card img {
-    width: 150px;
+    width: 100px;
     border-radius: 5px;
 }
 .card p {
@@ -53,26 +79,27 @@ nav {
 
 .btns-container {
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+    width: 830px;
 }
 .btn-top {
-    font-size: 30px;
+    font-size: 25px;
     padding: 10px;
     height: 70px;
-    width: 400px;
+    width: 250px;
     border: none;
+    border-radius: 20px;
     color: white;
-    background-color: #121212;
+    background: #199e5e;
+    background: linear-gradient(90deg, rgba(25, 158, 94, 1) 0%, rgba(17, 171, 97, 1) 35%, rgba(6, 191, 102, 1) 100%);
 }
 .profile-container {
-    display: flex;
-    justify-content: center;
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .profile-card {
     width: 400px;
-    height: 360px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -80,27 +107,34 @@ nav {
     padding: 30px;
     gap: 15px;
     color: white;
-    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
 .profile-card img {
     width: 180px;
-    border-radius: 10px;
+    border-radius: 20px;
 }
-
-
+.profile-card a {
+    color: white;
+}
 
 .card-container {
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     gap: 12px;
     color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .top-card {
     display: flex;
     align-items: center;
     gap: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.top-card p {
+    font-size: 16px;
 }
 .top-card img {
     width: 80px;
@@ -113,13 +147,16 @@ nav {
     gap: 10px;
     font-size: 20px;
     font-weight: 700;
+    height: 70px;
+}
+.top-card-title i {
+    font-size: 25px;
 }
 .main {
     display: flex;
     justify-content: center;
     width: 100%;
     gap: 30px;
-    margin-top: 30px;
 }
 .columna {
     width: 400px;
@@ -128,20 +165,41 @@ nav {
     gap: 30px;
 }
 
-
 .bg-profile {
-    background: #05043d;
-    background: linear-gradient(54deg, rgba(5, 4, 61, 1) 0%, rgba(8, 6, 128, 1) 53%, rgba(9, 7, 163, 1) 100%);
-}
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(-45deg, #1b2af1, #0512ce, #000327, #00021b);
+    background-size: 400% 400%;
+    animation: movimientoWrapped 12s ease infinite;
+  }
+  
+  /* Efecto de movimiento del gradiente */
+  @keyframes movimientoWrapped {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Opcional: capa borrosa para un efecto suave tipo "glass" */
+  .bg-profile::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 0;
+  }
+  
+  
 .bg-top-artist {
     background: #020024;
     background: linear-gradient(54deg, rgba(2, 0, 36, 1) 0%, rgba(91, 9, 121, 1) 53%, rgba(195, 24, 204, 1) 100%);
 }
 .bg-top-tracks {
     background: #69061d;
-    background: linear-gradient(54deg, rgba(105, 6, 29, 1) 0%, rgba(140, 8, 39, 1) 53%, rgba(235, 33, 80, 1) 100%);
+    background: linear-gradient(54deg, rgb(80, 1, 19) 0%, rgb(138, 5, 36) 53%, rgb(228, 18, 67) 100%);
 }
 .bg-top-genres {
-    background: #06bf66;
-    background: linear-gradient(54deg, rgba(6, 191, 102, 1) 0%, rgba(28, 145, 88, 1) 53%, rgba(3, 84, 45, 1) 100%);
+    background: #19789e;
+    background: linear-gradient(48deg, rgba(25, 120, 158, 1) 0%, rgba(9, 100, 135, 1) 35%, rgba(4, 47, 64, 1) 100%);
+    height: 100%;
 }
