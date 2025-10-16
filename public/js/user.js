@@ -96,7 +96,7 @@ export const getUserTopGenres = () => {
         .then(genres => {
             console.log("generos" + genres); // acá sí tenés los datos reales
             
-            genres.slice(0, 10).forEach(g => {
+            genres.slice(0, 5).forEach(g => {
                 const div = document.createElement("div");
                 div.classList.add("top-card")
                 const p = document.createElement("p")
@@ -112,3 +112,31 @@ export const getUserTopGenres = () => {
         console.warn("No hay token disponible");
     }
 };
+
+export const getUserRecentlyTracks = () => {
+    const token = localStorage.getItem("spotify_token");
+    if (token) {
+        fetch("http://127.0.0.1:3000/user/recently", {
+            headers: { Authorization: `Bearer ${token}`},
+        })
+        .then(res => res.json())
+        .then(data => {
+            const container = document.getElementById("recently-tracks")
+            console.log(data)
+            data.items.forEach(element => {
+                const div = document.createElement("div")
+                div.classList.add("recently-card")
+                const img = document.createElement("img")
+                img.src = `${element.track.album.images?.[0]?.url }`
+                img.alt = element.name
+                const name = document.createElement("p")
+                element.track.artists.forEach(artista => {
+                    name.textContent = `${artista.name} - ${element.track.name}`    
+                })
+                
+                div.append(img, name)
+                container.appendChild(div)
+            });
+        })
+    }
+}

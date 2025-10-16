@@ -18,8 +18,8 @@ app.use(express.static("."));
 
 // 🔹 Ruta para iniciar el login con Spotify
 app.get("/login", (req, res) => {
-  const scope = "user-top-read playlist-modify-private playlist-modify-public";
-  const auth_url = `https://accounts.spotify.com/authorize?client_id=${process.env.CLIENT_ID}&response_type=code&redirect_uri=${process.env.REDIRECT_URI}&scope=${scope}`;
+  const scope = "user-top-read user-read-recently-played playlist-modify-private playlist-modify-public";
+  const auth_url = `https://accounts.spotify.com/authorize?client_id=${process.env.CLIENT_ID}&response_type=code&redirect_uri=${process.env.REDIRECT_URI}&scope=${scope}&show_dialog=true`;
   res.redirect(auth_url);
 });
 

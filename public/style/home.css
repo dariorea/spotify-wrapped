@@ -50,15 +50,15 @@ nav {
     margin-bottom: 100px;
 }
 .card-container-tracks::-webkit-scrollbar-track {
-    background-color: #19789e;
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 5px;
 }
 .card-container-tracks::-webkit-scrollbar {
     width: 15px;
 }
 .card-container-tracks::-webkit-scrollbar-thumb {
-    background: white;          
-    border-radius: 10px;
+    background-color: #19789e;       
+    border-radius: 5px;
 }
 .card {
     width: 830px;
@@ -72,6 +72,7 @@ nav {
 .card img {
     width: 100px;
     border-radius: 5px;
+    z-index: 100;
 }
 .card p {
     font-size: 20px;
@@ -113,6 +114,7 @@ nav {
 .profile-card img {
     width: 180px;
     border-radius: 20px;
+    z-index: 100;
 }
 .profile-card a {
     color: white;
@@ -135,10 +137,12 @@ nav {
 }
 .top-card p {
     font-size: 16px;
+    z-index: 100;
 }
 .top-card img {
     width: 80px;
     border-radius: 5px;
+    z-index: 100;
 }
 
 .top-card-title {
@@ -148,6 +152,7 @@ nav {
     font-size: 20px;
     font-weight: 700;
     height: 70px;
+    z-index: 100
 }
 .top-card-title i {
     font-size: 25px;
@@ -167,39 +172,101 @@ nav {
 
 .bg-profile {
     position: relative;
-    overflow: hidden;
-    background: linear-gradient(-45deg, #1b2af1, #0512ce, #000327, #00021b);
-    background-size: 400% 400%;
-    animation: movimientoWrapped 12s ease infinite;
-  }
-  
-  /* Efecto de movimiento del gradiente */
-  @keyframes movimientoWrapped {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  
-  /* Opcional: capa borrosa para un efecto suave tipo "glass" */
-  .bg-profile::after {
+    background: linear-gradient(-45deg, #2532f1, #0e19b4, #01074b, #000431);
+    background-size: 400% 300%;
+    animation: movimientoWrapped 6s ease infinite;
+}
+/* Opcional: capa borrosa para un efecto suave tipo "glass" */
+.bg-profile::after {
     content: "";
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.25);
     z-index: 0;
-  }
-  
-  
+}
 .bg-top-artist {
-    background: #020024;
-    background: linear-gradient(54deg, rgba(2, 0, 36, 1) 0%, rgba(91, 9, 121, 1) 53%, rgba(195, 24, 204, 1) 100%);
+    position: relative;
+    background: linear-gradient(-45deg, #c10bf8, #8d0cb4, #000327, #00021b);
+    background-size: 400% 300%;
+    animation: movimientoWrapped 4s ease infinite;
+}
+/* Opcional: capa borrosa para un efecto suave tipo "glass" */
+.bg-top-artist::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 0;
 }
 .bg-top-tracks {
-    background: #69061d;
-    background: linear-gradient(54deg, rgb(80, 1, 19) 0%, rgb(138, 5, 36) 53%, rgb(228, 18, 67) 100%);
+    position: relative;
+    background: linear-gradient(-45deg, #f72541, #b80b22, #63010e, #49000a);
+    background-size: 400% 200%;
+    animation: movimientoWrapped 8s ease infinite;
+}
+/* Opcional: capa borrosa para un efecto suave tipo "glass" */
+.bg-top-tracks::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 0;
 }
 .bg-top-genres {
-    background: #19789e;
-    background: linear-gradient(48deg, rgba(25, 120, 158, 1) 0%, rgba(9, 100, 135, 1) 35%, rgba(4, 47, 64, 1) 100%);
     height: 100%;
+    position: relative;
+    background: linear-gradient(-45deg, #167df3, #1970d4, #05366e, #05366e);
+    background-size: 200% 100%;
+    animation: movimientoWrapped 7s ease infinite;
+}
+/* Opcional: capa borrosa para un efecto suave tipo "glass" */
+.bg-top-genres::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 0;
+}
+
+
+/* Efecto de movimiento del gradiente */
+@keyframes movimientoWrapped {
+    0% { background-position: 0% 100%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 100%; }
+}
+
+.recently-container {
+    display: flex;
+    width: 830px;
+    height: 220px;
+    gap: 15px;
+    overflow-x: scroll; 
+}
+.recently-card {
+    width: 150px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+    gap: 5px;
+}
+.recently-card img {
+    width: 150px;
+    border-radius: 10px;
+}
+
+
+.recently-container::-webkit-scrollbar-track {
+    background: white;
+    border-radius: 5px;
+}
+.recently-container::-webkit-scrollbar {
+    width: 15px;
+}
+.recently-container::-webkit-scrollbar-thumb {
+    background-color: #19789e;          
+    border-radius: 5px;
 }

@@ -2,7 +2,8 @@ import { getTopFourWeeks, getTopSixMonts, getTopTwelveMonths } from "./functions
 import { getUserData, 
         getUserTopArtist,
         getUserTopTracks,
-        getUserTopGenres } from "./user.js";
+        getUserTopGenres, 
+        getUserRecentlyTracks} from "./user.js";
 
 const btnFourWeeks = document.getElementById("btn-fourweeks")
 const btnSixMonths = document.getElementById("btn-sixmonths")
@@ -17,3 +18,4 @@ getUserData()
 getUserTopArtist()
 getUserTopTracks()
 getUserTopGenres()
+getUserRecentlyTracks()

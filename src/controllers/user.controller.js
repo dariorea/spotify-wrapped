@@ -98,3 +98,30 @@ export const getUserGenres = async (req, res) => {
     return res.status(500).json({ error: "Error obteniendo géneros del usuario" });
   }
 };
+
+export const getRecentlyPlayed = async (req, res) => {
+  const accessToken = req.headers.authorization?.split(" ")[1];
+
+  if (!accessToken) {
+    return res.status(401).json({ error: "Token no proporcionado" });
+  }
+
+  try {
+    const result = await axios.get(
+      "https://api.spotify.com/v1/me/player/recently-played?limit=10",
+      {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      }
+    );
+
+    // Devuelve solo lo necesario si querés (por ejemplo, items)
+    res.status(200).json(result.data);
+  } catch (error) {
+    console.error(error.response?.data || error.message);
+
+    return res.status(500).json({
+      error: "Error obteniendo canciones recientemente reproducidas",
+      details: error.response?.data || error.message,
+    });
+  }
+};
