@@ -34,21 +34,16 @@ nav {
     color: white;
     height: 100px;
 }
-.tracks {
-    display: flex;
+.card-container-tracks {
+    display: none;
     flex-direction: column;
     color: white;
     gap: 10px;
     margin-top: 30px;
     height: 600px;
+    overflow-y: scroll;   /* activa scroll vertical */
 }/* Estilo del scroll */
 
-.card-container-tracks {
-    height: 600px;
-    overflow-y: scroll;   /* activa scroll vertical */
-    display: none;
-    margin-bottom: 100px;
-}
 .card-container-tracks::-webkit-scrollbar-track {
     background-color: white;
     border-radius: 5px;
@@ -62,7 +57,7 @@ nav {
 }
 .card {
     width: 830px;
-    gap: 5px;
+    gap: 15px;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -74,26 +69,41 @@ nav {
     border-radius: 5px;
     z-index: 100;
 }
-.card p {
+.card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: white;
+}
+.card-text p {
     font-size: 20px;
 }
-
+.card-text h4 {
+    font-size: 15px;
+}
+.card-text a {
+    font-size: 20px;
+    color: #199e5e;
+}
 .btns-container {
     display: flex;
-    justify-content: space-between;
+    gap: 20px;
     align-items: center;
     width: 830px;
 }
 .btn-top {
-    font-size: 25px;
+    font-size: 20px;
     padding: 10px;
-    height: 70px;
-    width: 250px;
+    height: 50px;
+    width: 170px;
     border: none;
     border-radius: 20px;
     color: white;
     background: #199e5e;
-    background: linear-gradient(90deg, rgba(25, 158, 94, 1) 0%, rgba(17, 171, 97, 1) 35%, rgba(6, 191, 102, 1) 100%);
+}
+.btn-top:hover {
+    background-color: #1970d4;
+    cursor: pointer;
 }
 .profile-container {
     border-radius: 20px;
@@ -239,7 +249,7 @@ nav {
 .recently-container {
     display: flex;
     width: 830px;
-    height: 220px;
+    height: 250px;
     gap: 15px;
     overflow-x: scroll; 
 }
@@ -260,7 +270,7 @@ nav {
 
 
 .recently-container::-webkit-scrollbar-track {
-    background: white;
+    background: #040135;
     border-radius: 5px;
 }
 .recently-container::-webkit-scrollbar {
@@ -269,4 +279,21 @@ nav {
 .recently-container::-webkit-scrollbar-thumb {
     background-color: #19789e;          
     border-radius: 5px;
+}
+
+.playlist-container {
+    display: flex;
+    width: 830px;
+    height: 220px;
+    gap: 15px;
+}
+.following-container {
+    width: 830px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.following-container img {
+    width: 150px;
+    height: 150px;
 }

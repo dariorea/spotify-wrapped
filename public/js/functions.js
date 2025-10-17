@@ -10,6 +10,7 @@ export const getTopFourWeeks = () => {
         .then(data => {
             console.log("Top tracks:", data); // <--- mirá qué llega
             const container = document.getElementById("tracks");
+            let count = 0;
             container.innerHTML = "";
             if (data.items.length === 0) {
                 container.innerHTML = "<p>No se encontraron canciones top. Escuchá música primero 🎵</p>";
@@ -17,13 +18,26 @@ export const getTopFourWeeks = () => {
                 data.items.forEach(track => {
                     const div = document.createElement("div");
                     div.classList.add("card")
-                    div.innerHTML = `
-                        <img src="${track.album.images[0].url}" width="100">
-                        <p>${track.name} - ${track.artists.map(a => a.name).join(", ")}</p>
-                        <a href="${track.external_urls.spotify}"><i class="bi bi-spotify"></i></a>
-                    `;
-                    container.appendChild(div)
-                    container.style.display = "block";
+                    const number = document.createElement("p")
+                    number.textContent = count += 1;
+                    const img = document.createElement("img")
+                    img.src = `${track.album.images[0].url}`
+                    img.alt = `${track.name}`
+                    const textCard = document.createElement("div")
+                    textCard.classList.add("card-text")
+                    const nameSong = document.createElement("p")
+                    nameSong.textContent = `${track.name}`;
+                    const nameArtist = document.createElement("h4")
+                    track.artists.forEach( a => {
+                        nameArtist.textContent = a.name;
+                    })
+                    const linkSpotify = document.createElement("a")
+                    linkSpotify.innerHTML = `<a href="${track.external_urls.spotify}"><i class="bi bi-spotify"></i></a>`
+                    
+                    textCard.append(nameSong, nameArtist, linkSpotify)
+                    div.append(number, img, textCard)
+                    container.appendChild(div);
+                    document.querySelector(".card-container-tracks").style.display = "flex";
                 });
             }
         })
@@ -46,6 +60,7 @@ export const getTopTwelveMonths = () => {
         .then(data => {
             console.log("Top tracks:", data); // <--- mirá qué llega
             const container = document.getElementById("tracks");
+            let count = 0;
             container.innerHTML = "";
             if (data.items.length === 0) {
                 container.innerHTML = "<p>No se encontraron canciones top. Escuchá música primero 🎵</p>";
@@ -53,13 +68,26 @@ export const getTopTwelveMonths = () => {
                 data.items.forEach(track => {
                     const div = document.createElement("div");
                     div.classList.add("card")
-                    div.innerHTML = `
-                        <img src="${track.album.images[0].url}" width="100">
-                        <p>${track.name} - ${track.artists.map(a => a.name).join(", ")}</p>
-                        <a href="${track.external_urls.spotify}"><i class="bi bi-spotify"></i></a>
-                    `;
+                    const number = document.createElement("p")
+                    number.textContent = count += 1;
+                    const img = document.createElement("img")
+                    img.src = `${track.album.images[0].url}`
+                    img.alt = `${track.name}`
+                    const textCard = document.createElement("div")
+                    textCard.classList.add("card-text")
+                    const nameSong = document.createElement("p")
+                    nameSong.textContent = `${track.name}`;
+                    const nameArtist = document.createElement("h4")
+                    track.artists.forEach( a => {
+                        nameArtist.textContent = a.name;
+                    })
+                    const linkSpotify = document.createElement("a")
+                    linkSpotify.innerHTML = `<a href="${track.external_urls.spotify}"><i class="bi bi-spotify"></i></a>`
+                    
+                    textCard.append(nameSong, nameArtist, linkSpotify)
+                    div.append(number, img, textCard)
                     container.appendChild(div);
-                    container.style.display = "block";
+                    document.querySelector(".card-container-tracks").style.display = "flex";
                 });
             }
         })
@@ -80,6 +108,7 @@ export const getTopSixMonts = () => {
         .then(data => {
             console.log("Top tracks:", data); // <--- mirá qué llega
             const container = document.getElementById("tracks");
+            let count = 0;
             container.innerHTML = "";
             if (data.items.length === 0) {
                 container.innerHTML = "<p>No se encontraron canciones top. Escuchá música primero 🎵</p>";
@@ -87,13 +116,26 @@ export const getTopSixMonts = () => {
                 data.items.forEach(track => {
                     const div = document.createElement("div");
                     div.classList.add("card")
-                    div.innerHTML = `
-                        <img src="${track.album.images[0].url}" width="100">
-                        <p>${track.name} - ${track.artists.map(a => a.name).join(", ")}</p>
-                        <a href="${track.external_urls.spotify}"><i class="bi bi-spotify"></i></a>
-                    `;
+                    const number = document.createElement("p")
+                    number.textContent = count += 1;
+                    const img = document.createElement("img")
+                    img.src = `${track.album.images[0].url}`
+                    img.alt = `${track.name}`
+                    const textCard = document.createElement("div")
+                    textCard.classList.add("card-text")
+                    const nameSong = document.createElement("p")
+                    nameSong.textContent = `${track.name}`;
+                    const nameArtist = document.createElement("h4")
+                    track.artists.forEach( a => {
+                        nameArtist.textContent = a.name;
+                    })
+                    const linkSpotify = document.createElement("a")
+                    linkSpotify.innerHTML = `<a href="${track.external_urls.spotify}"><i class="bi bi-spotify"></i></a>`
+                    
+                    textCard.append(nameSong, nameArtist, linkSpotify)
+                    div.append(number, img, textCard)
                     container.appendChild(div);
-                    container.style.display = "block";
+                    document.querySelector(".card-container-tracks").style.display = "flex";
                 });
             }
         })

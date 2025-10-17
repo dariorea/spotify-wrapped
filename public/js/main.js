@@ -3,7 +3,9 @@ import { getUserData,
         getUserTopArtist,
         getUserTopTracks,
         getUserTopGenres, 
-        getUserRecentlyTracks} from "./user.js";
+        getUserRecentlyTracks,
+        getPlaylist,
+        getFollowing} from "./user.js";
 
 const btnFourWeeks = document.getElementById("btn-fourweeks")
 const btnSixMonths = document.getElementById("btn-sixmonths")
@@ -19,3 +21,5 @@ getUserTopArtist()
 getUserTopTracks()
 getUserTopGenres()
 getUserRecentlyTracks()
+getPlaylist()
+getFollowing()

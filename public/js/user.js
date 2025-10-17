@@ -128,11 +128,64 @@ export const getUserRecentlyTracks = () => {
                 div.classList.add("recently-card")
                 const img = document.createElement("img")
                 img.src = `${element.track.album.images?.[0]?.url }`
-                img.alt = element.name
+                img.alt = element.name;
                 const name = document.createElement("p")
                 element.track.artists.forEach(artista => {
                     name.textContent = `${artista.name} - ${element.track.name}`    
                 })
+                
+                div.append(img, name)
+                container.appendChild(div)
+            });
+        })
+    }
+}
+export const getPlaylist = () => {
+    const token = localStorage.getItem("spotify_token");
+    if (token) {
+        fetch("http://127.0.0.1:3000/user/playlist", {
+            headers: { Authorization: `Bearer ${token}`},
+        })
+        .then(res => res.json())
+        .then(data => {
+            const container = document.getElementById("playlist")
+            console.log(data)
+            data.items.forEach(element => {
+                const div = document.createElement("div")
+                div.classList.add("recently-card")
+                const img = document.createElement("img")
+                img.src = `${element.images?.[0]?.url }`
+                img.alt = element.name
+                const name = document.createElement("p")
+                name.textContent = `${element.name}`    
+        
+                
+                div.append(img, name)
+                container.appendChild(div)
+            });
+        })
+    }
+}
+
+export const getFollowing = () => {
+    const token = localStorage.getItem("spotify_token");
+    if (token) {
+        fetch("http://127.0.0.1:3000/user/following", {
+            headers: { Authorization: `Bearer ${token}`},
+        })
+        .then(res => res.json())
+        .then(data => {
+            const container = document.getElementById("following")
+            console.log(data)
+            data.artists.items.forEach(element => {
+                const div = document.createElement("div")
+                div.classList.add("recently-card")
+                const img = document.createElement("img")
+                img.src = `${element.images?.[0]?.url }`
+                img.alt = element.name
+                const name = document.createElement("p")
+                name.textContent = `${element.name}`    
+        
                 
                 div.append(img, name)
                 container.appendChild(div)
