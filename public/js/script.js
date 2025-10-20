@@ -2,7 +2,7 @@ const loginButton = document.getElementById("login");
 const tracksContainer = document.getElementById("tracks");
 
 loginButton.addEventListener("click", () => {
-  window.location.href = "http://localhost:3000/login";
+  window.location.href = "https://spotify-stats-g23p.onrender.com/login";
 });
 
 // Captura el parámetro `code` cuando Spotify redirige
