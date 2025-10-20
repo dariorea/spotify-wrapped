@@ -6,15 +6,11 @@ import topRoutes from "./routes/top.routes.js";
 import userRoutes from "./routes/user.routes.js";
 
 dotenv.config();
-
 const app = express();
 app.use(cors());
 app.use(express.json());
 // Carpeta donde están tus HTML, JS y CSS
 app.use(express.static("public")); // si tus archivos están en /public
-// o si están en la raíz
-app.use(express.static("."));
-
 
 // 🔹 Ruta para iniciar el login con Spotify
 app.get("/login", (req, res) => {

@@ -34,7 +34,7 @@ nav {
     color: white;
     height: 100px;
 }
-.card-container-tracks {
+.container-tracks {
     display: none;
     flex-direction: column;
     color: white;
@@ -44,18 +44,18 @@ nav {
     overflow-y: scroll;   /* activa scroll vertical */
 }/* Estilo del scroll */
 
-.card-container-tracks::-webkit-scrollbar-track {
+.container-tracks::-webkit-scrollbar-track {
     background-color: white;
     border-radius: 5px;
 }
-.card-container-tracks::-webkit-scrollbar {
+.container-tracks::-webkit-scrollbar {
     width: 15px;
 }
-.card-container-tracks::-webkit-scrollbar-thumb {
+.container-tracks::-webkit-scrollbar-thumb {
     background-color: #19789e;       
     border-radius: 5px;
 }
-.card {
+.card-tracks {
     width: 830px;
     gap: 15px;
     border-radius: 10px;
@@ -64,27 +64,28 @@ nav {
     overflow: hidden;
     padding: 10px;
 }
-.card img {
+.card-tracks img {
     width: 100px;
     border-radius: 5px;
     z-index: 100;
 }
-.card-text {
+.card-tracks__text {
     display: flex;
     flex-direction: column;
     gap: 10px;
     color: white;
 }
-.card-text p {
+.card-tracks__text p {
     font-size: 20px;
 }
-.card-text h4 {
+.card-tracks__text h4 {
     font-size: 15px;
 }
-.card-text a {
+.card-tracks__text a {
     font-size: 20px;
     color: #199e5e;
 }
+/*****************/
 .btns-container {
     display: flex;
     gap: 20px;
@@ -116,7 +117,7 @@ nav {
     justify-content: center;
     align-items: center;
     padding: 30px;
-    gap: 15px;
+    gap: 10px;
     color: white;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -127,9 +128,13 @@ nav {
     z-index: 100;
 }
 .profile-card a {
+    z-index: 10;
+    font-size: 20px;
     color: white;
 }
-
+.profile-card a:hover {
+    cursor: pointer;
+}
 .card-container {
     padding: 20px;
     border-radius: 20px;
@@ -137,13 +142,11 @@ nav {
     flex-direction: column;
     gap: 12px;
     color: white;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .top-card {
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .top-card p {
     font-size: 16px;
@@ -167,6 +170,12 @@ nav {
 .top-card-title i {
     font-size: 25px;
 }
+
+/**********************************************************************/
+/**********************************************************************/
+/**********************************************************************/
+/**********************************************************************/
+
 .main {
     display: flex;
     justify-content: center;
@@ -246,14 +255,15 @@ nav {
     100% { background-position: 0% 100%; }
 }
 
+
+
 .recently-container {
     display: flex;
     width: 830px;
-    height: 250px;
     gap: 15px;
-    overflow-x: scroll; 
+    overflow-x: auto; 
 }
-.recently-card {
+.card {
     width: 150px;
     flex-shrink: 0;
     display: flex;
@@ -262,8 +272,9 @@ nav {
     color: white;
     font-size: 14px;
     gap: 5px;
+    margin-bottom: 15px;
 }
-.recently-card img {
+.card img {
     width: 150px;
     border-radius: 10px;
 }
@@ -281,12 +292,6 @@ nav {
     border-radius: 5px;
 }
 
-.playlist-container {
-    display: flex;
-    width: 830px;
-    height: 220px;
-    gap: 15px;
-}
 .following-container {
     width: 830px;
     display: flex;

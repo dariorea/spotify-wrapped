@@ -1,6 +1,4 @@
-export const getUserData = () => {
-    const token = localStorage.getItem("spotify_token");
-  
+export const getUserData = (token) => {
     if (token) {
         fetch("http://127.0.0.1:3000/user/profile", {
             headers: { Authorization: `Bearer ${token}` }
@@ -21,7 +19,7 @@ export const getUserData = () => {
                     <img src="${data.images?.[0]?.url || './images/default-avatar.png'}" width="100" alt="Foto de perfil">
                     <h1>${data.display_name}</h1>
                     <p>Seguidores: ${data.followers?.total || 0}</p>
-                    <a href="${data.external_urls?.spotify}" target="_blank">Ver perfil en Spotify</a>
+                    <a href="${data.external_urls?.spotify}" target="_blank"><i class="bi bi-spotify"></i></a>
                 `;
                 container.appendChild(div);
             }
@@ -33,8 +31,7 @@ export const getUserData = () => {
     }
 }
 
-export const getUserTopArtist = () => {
-    const token = localStorage.getItem("spotify_token");
+export const getUserTopArtist = (token) => {
     if (token) {
         fetch("http://127.0.0.1:3000/user/top", {
             headers: { Authorization: `Bearer ${token}` }
@@ -57,8 +54,7 @@ export const getUserTopArtist = () => {
         })
     }
 }
-export const getUserTopTracks = () => {
-    const token = localStorage.getItem("spotify_token");
+export const getUserTopTracks = (token) => {
     if (token) {
         fetch("http://127.0.0.1:3000/user/tracks", {
             headers: { Authorization: `Bearer ${token}` }
@@ -82,8 +78,7 @@ export const getUserTopTracks = () => {
     }
 }
 
-export const getUserTopGenres = () => {
-    const token = localStorage.getItem("spotify_token");
+export const getUserTopGenres = (token) => {
     const containerTop = document.getElementById("top-genres");
     if (token) {
         fetch("http://127.0.0.1:3000/user/genres", {
@@ -113,8 +108,7 @@ export const getUserTopGenres = () => {
     }
 };
 
-export const getUserRecentlyTracks = () => {
-    const token = localStorage.getItem("spotify_token");
+export const getUserRecentlyTracks = (token) => {
     if (token) {
         fetch("http://127.0.0.1:3000/user/recently", {
             headers: { Authorization: `Bearer ${token}`},
@@ -125,7 +119,7 @@ export const getUserRecentlyTracks = () => {
             console.log(data)
             data.items.forEach(element => {
                 const div = document.createElement("div")
-                div.classList.add("recently-card")
+                div.classList.add("card")
                 const img = document.createElement("img")
                 img.src = `${element.track.album.images?.[0]?.url }`
                 img.alt = element.name;
@@ -140,8 +134,7 @@ export const getUserRecentlyTracks = () => {
         })
     }
 }
-export const getPlaylist = () => {
-    const token = localStorage.getItem("spotify_token");
+export const getPlaylist = (token) => {
     if (token) {
         fetch("http://127.0.0.1:3000/user/playlist", {
             headers: { Authorization: `Bearer ${token}`},
@@ -152,7 +145,7 @@ export const getPlaylist = () => {
             console.log(data)
             data.items.forEach(element => {
                 const div = document.createElement("div")
-                div.classList.add("recently-card")
+                div.classList.add("card")
                 const img = document.createElement("img")
                 img.src = `${element.images?.[0]?.url }`
                 img.alt = element.name
@@ -167,8 +160,7 @@ export const getPlaylist = () => {
     }
 }
 
-export const getFollowing = () => {
-    const token = localStorage.getItem("spotify_token");
+export const getFollowing = (token) => {
     if (token) {
         fetch("http://127.0.0.1:3000/user/following", {
             headers: { Authorization: `Bearer ${token}`},
@@ -179,9 +171,9 @@ export const getFollowing = () => {
             console.log(data)
             data.artists.items.forEach(element => {
                 const div = document.createElement("div")
-                div.classList.add("recently-card")
+                div.classList.add("card")
                 const img = document.createElement("img")
-                img.src = `${element.images?.[0]?.url }`
+                img.src = `${element.images?.[0]?.url || './pngegg(7).png'}`
                 img.alt = element.name
                 const name = document.createElement("p")
                 name.textContent = `${element.name}`    
