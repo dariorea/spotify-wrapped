@@ -11,7 +11,7 @@ const code = params.get("code");
 
 if (code) {
     // Intercambiamos el code por un token
-    fetch("http://localhost:3000/callback.html", {
+    fetch("https://spotify-stats-g23p.onrender.com/callback.html", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ code }),
