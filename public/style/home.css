@@ -103,12 +103,11 @@ nav {
     background: #199e5e;
 }
 .btn-top:hover {
-    background-color: #1970d4;
+    background-color: #10ca73;
     cursor: pointer;
 }
 .profile-container {
     border-radius: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .profile-card {
     width: 400px;
@@ -119,8 +118,6 @@ nav {
     padding: 30px;
     gap: 10px;
     color: white;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-
 }
 .profile-card img {
     width: 180px;
@@ -129,7 +126,7 @@ nav {
 }
 .profile-card a {
     z-index: 10;
-    font-size: 20px;
+    font-size: 25px;
     color: white;
 }
 .profile-card a:hover {
@@ -301,4 +298,128 @@ nav {
 .following-container img {
     width: 150px;
     height: 150px;
+}
+
+
+@media (max-width: 400px) {
+    .profile-card {
+        width: 100%;
+        font-size: 10px;
+        gap: 5px;
+        padding: 10px 0 10px 0;
+    }
+    .profile-card img {
+        width: 100px;
+    }
+    .profile-card a {
+        font-size: 14px;
+    }
+    .card-container {
+        padding: 0 0 10px 10px;
+        gap: 5px;
+    }
+    .top-card {
+        width: 100%;
+        padding: 0;
+        gap: 5px;
+    }
+    .top-card img {
+        width: 50px;
+    }
+    .top-card p {
+        font-size: 10px;
+    }
+    .top-card-title {
+        height: 50px;
+        font-size: 12px;
+    }
+    .top-card-title i {
+        font-size: 15px;
+    }
+    .columna {
+        width: 45%;
+        gap: 10px;
+    }
+    nav {
+        width: 100%;
+    }
+    .title-container {
+        height: 100px;
+        gap: 10px;
+        font-size: 20px;
+    }
+    .title-container i {
+        font-size: 30px;
+    }
+    .main {
+        gap: 10px;        
+    }
+    .container-tracks {
+        width: 100%;
+    }
+    .card-tracks {
+        width: 100%;
+        gap: 10px;
+        border: solid 1px white;
+        padding: 0;
+        margin-bottom: 10px;
+    }
+    .card-tracks img {
+        width: 90px;
+    }
+    .card-tracks__text {
+        gap: 5px;
+    }
+    .card-tracks__text p {
+        font-size: 12px;
+    }
+    .card-tracks__text h4 {
+        font-size: 10px;
+    }
+    .card-tracks__text a {
+        font-size: 12px;
+    }
+    .recently-container {
+        width: 100%;
+    }
+    .following-container {
+        width: 100%;
+    }
+    .subtitle {
+        width: 100%;
+        height: 50px;
+        font-size: 12px;
+        padding-left: 10px;
+    }
+    .btns-container {
+        width: 100%;
+        gap: 10px;
+        padding-left: 10px;
+    }
+    .btn-top {
+        width: 90px;
+        height: 40px;
+        font-size: 10px;
+    }
+    .recently-container {
+        width: 100%;
+        gap: 5px;
+        padding-left: 10px;
+    }
+    .card {
+        width: 90px;
+        font-size: 10px;
+        margin-bottom: 5px;
+    }
+    .card img {
+        width: 90px;
+    }
+    .following-container {
+        width: 100%;
+        justify-content: center;
+    }
+    .following-container img {
+        width: 90px;
+        height: 90px;
+    }
 }
