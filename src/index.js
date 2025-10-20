@@ -43,6 +43,6 @@ app.post("/callback", async (req, res) => {
 
 // 🔹 Rutas externas (módulo top)
 app.use("/track", topRoutes);
-app.use("/user", userRoutes)
+app.use("/user", userRoutes);
 
 app.listen(3000, () => console.log("Servidor en http://localhost:3000"));

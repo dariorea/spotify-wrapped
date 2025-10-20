@@ -3,7 +3,7 @@
 
     if (code) {
       // Envía el code al backend para obtener token
-      fetch("http://127.0.0.1:3000/callback", {
+      fetch("https://spotify-stats-g23p.onrender.com/callback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ code })
@@ -13,7 +13,7 @@
           // Guardá el token en localStorage
           localStorage.setItem("spotify_token", data.access_token);
           // Redirigí a la app principal
-          window.location.href = "../pages/home.html";
+          window.location.href = "https://spotify-stats-g23p.onrender.com/home.html";
         })
         .catch(err => console.error(err));
     } else {
