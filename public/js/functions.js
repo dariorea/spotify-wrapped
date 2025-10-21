@@ -1,9 +1,10 @@
 import { createCardTracks } from "./modules.js";
+import { baseUrl } from "./user.js";
 
 
 export const getTopFourWeeks = (token) => {
     if (token) {
-        fetch("http://127.0.0.1:3000/track/top-four", {
+        fetch(`${baseUrl}/track/top-four`, {
             headers: { Authorization: `Bearer ${token}` }
         })
         .then(res => res.json())
@@ -22,7 +23,7 @@ export const getTopFourWeeks = (token) => {
 }
 export const getTopTwelveMonths = (token) => {
     if (token) {
-        fetch("http://127.0.0.1:3000/track/top-twelve", {
+        fetch(`${baseUrl}/track/top-twelve`, {
             headers: { Authorization: `Bearer ${token}` }
         })
         .then(res => res.json())
@@ -41,7 +42,7 @@ export const getTopTwelveMonths = (token) => {
 }
 export const getTopSixMonts = (token) => {
     if (token) {
-        fetch("http://127.0.0.1:3000/track/top-six", {
+        fetch(`${baseUrl}/track/top-six`, {
             headers: { Authorization: `Bearer ${token}` }
         })
         .then(res => res.json())

@@ -1,6 +1,10 @@
+export const baseUrl = window.location.hostname.includes("localhost")
+  ? "http://localhost:3000" // backend local
+  : "https://spotify-stats-g23p.onrender.com"; // backend en Render
+
 export const getUserData = (token) => {
     if (token) {
-        fetch("http://127.0.0.1:3000/user/profile", {
+        fetch(`${baseUrl}/user/profile`, {
             headers: { Authorization: `Bearer ${token}` }
         })
         .then(res => res.json())
@@ -33,7 +37,7 @@ export const getUserData = (token) => {
 
 export const getUserTopArtist = (token) => {
     if (token) {
-        fetch("http://127.0.0.1:3000/user/top", {
+        fetch(`${baseUrl}/user/top`, {
             headers: { Authorization: `Bearer ${token}` }
         })
         .then(res => res.json())
@@ -56,7 +60,7 @@ export const getUserTopArtist = (token) => {
 }
 export const getUserTopTracks = (token) => {
     if (token) {
-        fetch("http://127.0.0.1:3000/user/tracks", {
+        fetch(`${baseUrl}/user/tracks`, {
             headers: { Authorization: `Bearer ${token}` }
         })
         .then(res => res.json())
@@ -81,7 +85,7 @@ export const getUserTopTracks = (token) => {
 export const getUserTopGenres = (token) => {
     const containerTop = document.getElementById("top-genres");
     if (token) {
-        fetch("http://127.0.0.1:3000/user/genres", {
+        fetch(`${baseUrl}/user/genres`, {
             headers: { Authorization: `Bearer ${token}` }
         })
         .then(res => {
@@ -110,7 +114,7 @@ export const getUserTopGenres = (token) => {
 
 export const getUserRecentlyTracks = (token) => {
     if (token) {
-        fetch("http://127.0.0.1:3000/user/recently", {
+        fetch(`${baseUrl}/user/recently`, {
             headers: { Authorization: `Bearer ${token}`},
         })
         .then(res => res.json())
@@ -136,7 +140,7 @@ export const getUserRecentlyTracks = (token) => {
 }
 export const getPlaylist = (token) => {
     if (token) {
-        fetch("http://127.0.0.1:3000/user/playlist", {
+        fetch(`${baseUrl}/user/playlist`, {
             headers: { Authorization: `Bearer ${token}`},
         })
         .then(res => res.json())
@@ -162,7 +166,7 @@ export const getPlaylist = (token) => {
 
 export const getFollowing = (token) => {
     if (token) {
-        fetch("http://127.0.0.1:3000/user/following", {
+        fetch(`${baseUrl}/user/following`, {
             headers: { Authorization: `Bearer ${token}`},
         })
         .then(res => res.json())
