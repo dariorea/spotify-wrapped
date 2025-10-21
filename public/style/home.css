@@ -301,7 +301,7 @@ nav {
 }
 
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
     .profile-card {
         width: 100%;
         font-size: 10px;
