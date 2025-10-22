@@ -117,6 +117,7 @@ nav {
     align-items: center;
     padding: 30px;
     gap: 10px;
+    border: solid 1px white;
     color: white;
 }
 .profile-card img {
@@ -146,7 +147,7 @@ nav {
     gap: 10px;
 }
 .top-card p {
-    font-size: 16px;
+    font-size: 25px;
     z-index: 100;
 }
 .top-card img {
@@ -275,7 +276,6 @@ nav {
     width: 150px;
     border-radius: 10px;
 }
-
 
 .recently-container::-webkit-scrollbar-track {
     background: #040135;

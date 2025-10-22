@@ -1,5 +1,8 @@
 import { createCardTracks } from "./modules.js";
-import { baseUrl } from "./user.js";
+export const baseUrl = (["localhost", "127.0.0.1"].includes(window.location.hostname))
+? "http://127.0.0.1:3000"
+: "https://spotify-stats-g23p.onrender.com";
+
 
 
 export const getTopFourWeeks = (token) => {

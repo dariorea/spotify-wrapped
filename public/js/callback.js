@@ -1,7 +1,7 @@
-// Detectar si estamos en localhost o en producción
-const baseUrl = window.location.hostname.includes("localhost")
-  ? "http://localhost:3000" // backend local
-  : "https://spotify-stats-g23p.onrender.com"; // backend en Render
+//Detectar si estamos en localhost o en producción
+export const baseUrl = (["localhost", "127.0.0.1"].includes(window.location.hostname))
+? "http://127.0.0.1:3000"
+: "https://spotify-stats-g23p.onrender.com";
 
 // Captura el code que Spotify manda en la URL
 const code = new URLSearchParams(window.location.search).get("code");

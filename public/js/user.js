@@ -1,6 +1,6 @@
-export const baseUrl = window.location.hostname.includes("localhost")
-  ? "http://localhost:3000" // backend local
-  : "https://spotify-stats-g23p.onrender.com"; // backend en Render
+export const baseUrl = (["localhost", "127.0.0.1"].includes(window.location.hostname))
+? "http://127.0.0.1:3000"
+: "https://spotify-stats-g23p.onrender.com";
 
 export const getUserData = (token) => {
     if (token) {
@@ -181,8 +181,7 @@ export const getFollowing = (token) => {
                 img.alt = element.name
                 const name = document.createElement("p")
                 name.textContent = `${element.name}`    
-        
-                
+
                 div.append(img, name)
                 container.appendChild(div)
             });
