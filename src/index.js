@@ -15,16 +15,7 @@ app.use(express.static("public")); // si tus archivos están en /public
 // 🔹 Ruta para iniciar el login con Spotify
 app.get("/login", (req, res) => {
   const scope = "user-top-read user-follow-read user-read-recently-played playlist-modify-private playlist-modify-public";
-  
-  // Detecta si está en localhost o en producción
-  const isLocal = req.hostname === "localhost" || req.hostname === "127.0.0.1";
-  
-  const redirect_uri = isLocal
-    ? "http://127.0.0.1:3000/callback.html"
-    : "https://spotify-stats-g23p.onrender.com/callback.html";
-
-  const auth_url = `https://accounts.spotify.com/authorize?client_id=${process.env.CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(redirect_uri)}&scope=${encodeURIComponent(scope)}&show_dialog=true`;
-
+  const auth_url = `https://accounts.spotify.com/authorize?client_id=${process.env.CLIENT_ID}&response_type=code&redirect_uri=${process.env.REDIRECT_URI}&scope=${scope}&show_dialog=true`;
   res.redirect(auth_url);
 });
 
